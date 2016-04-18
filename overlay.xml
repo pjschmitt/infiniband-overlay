@@ -9,7 +9,7 @@
       <email>schmitt953@yahoo.com</email>
       <name>Parker Schmitt</name>
     </owner>
-    <source type="git">https://github.com/pjschmitt/citadel-overlay.git</source>
-    <feed>https://github.com/pjschmitt/citadel-overlay/commits/master.atom</feed>
+    <source type="git">https://github.com/pjschmitt/infiniband-overlay.git</source>
+    <feed>https://github.com/pjschmitt/infiniband-overlay/commits/master.atom</feed>
   </repo>
 </repositories>
