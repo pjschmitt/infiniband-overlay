@@ -21,7 +21,7 @@ DEPEND="slp? ( net-libs/openslp ) infiniband? ( sys-infiniband/ofed )"
 RDEPEND="${DEPEND}
 	sys-fs/lsscsi
 	sys-apps/util-linux"
-REQUIRED_USE="infiniband? ( rdma )"
+REQUIRED_USE="infiniband? ( rdma ) || ( rdma tcp )"
 S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
