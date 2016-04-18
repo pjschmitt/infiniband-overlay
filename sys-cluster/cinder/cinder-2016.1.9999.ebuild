@@ -20,7 +20,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS=""
 IUSE="+api +scheduler +volume iscsi lvm mysql +memcached postgres sqlite test +tgt lio infiniband rdma"
-REQUIRED_USE="|| ( mysql postgres sqlite ) || ( tgt lio ) infiniband ( rdma )"
+REQUIRED_USE="|| ( mysql postgres sqlite ) iscsi ( || ( tgt lio ) ) infiniband ( rdma )"
 
 CDEPEND=">=dev-python/pbr-1.6[${PYTHON_USEDEP}]"
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
@@ -105,7 +105,10 @@ RDEPEND="
 	>=dev-python/tooz-1.28.0[${PYTHON_USEDEP}]
 	>=dev-python/google-api-python-client-1.4.2[${PYTHON_USEDEP}]
 	iscsi? (
-		sys-block/tgt
+		tgt? ( sys-block/tgt )
+		lio? ( sys-block/targetcli 
+		sys-block/lio-utils
+		)
 		sys-block/open-iscsi
 	)
 	lvm? ( sys-fs/lvm2 )
