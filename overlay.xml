@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>infiniband-overlay</name>
+    <description>Adds infiniband and rdma support to packages missing it</description>
+    <homepage>https://github.com/pjschmitt/infiniband-overlay</homepage>
+    <owner type="project">
+      <email>schmitt953@yahoo.com</email>
+      <name>Parker Schmitt</name>
+    </owner>
+    <source type="git">https://github.com/pjschmitt/citadel-overlay.git</source>
+    <feed>https://github.com/pjschmitt/citadel-overlay/commits/master.atom</feed>
+  </repo>
+</repositories>
