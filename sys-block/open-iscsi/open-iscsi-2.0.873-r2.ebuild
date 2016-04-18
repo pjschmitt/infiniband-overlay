@@ -36,11 +36,26 @@ pkg_setup() {
 	# more information:
 	# https://groups.google.com/group/open-iscsi/browse_thread/thread/cc10498655b40507/fd6a4ba0c8e91966
 	# If there's a new release, check whether this is still valid!
-	CONFIG_CHECK_MODULES="tcp? (SCSI_ISCSI_ATTRS ISCSI_TCP) rdma? (INFINIBAND_ISER) infiniband? (INFINIBAND_IPOIB INFINIBAND_USER_MAD INFINIBAND_USER_ACCESS)"
+	TCP_MODULES="SCSI_ISCSI_ATTRS ISCSI_TCP"
+	RDMA_MODULES="INFINIBAND_ISER"
+	INFINIBAND_MODULES="INFINIBAND_IPOIB INIBAND_USER_MAD INFINIBAND_USER_ACCESS"
+	CONFIG_CHECK_MODULES="tcp? ( ${TCP_MODULES} ) rdma? ( ${RDMA_MODULES} ) infiniband? ( ${INFINIBAND_MODULES} )"
 	if linux_config_exists; then
-		for module in ${CONFIG_CHECK_MODULES}; do
-			linux_chkconfig_module ${module} || ewarn "${module} needs to be built as module (builtin doesn't work)"
+		if use tcp; then
+			for module in ${TCP_MODULES}; do
+				linux_chkconfig_module ${module} || ewarn "${module} needs to be built as module (builtin doesn't work)"
 		done
+		fi
+                if use infiniband; then
+                        for module in ${INFINIBAND_MODULES}; do
+                                linux_chkconfig_module ${module} || ewarn "${module} needs to be built as module (builtin doesn't work)"
+                done
+		fi
+                if use rdma; then
+                        for module in ${RDMA_MODULES}; do
+                                linux_chkconfig_module ${module} || ewarn "${module} needs to be built as module (builtin doesn't work)"$
+                done
+		fi
 	fi
 }
 
