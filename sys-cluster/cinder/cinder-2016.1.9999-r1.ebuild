@@ -19,7 +19,7 @@ EGIT_BRANCH="stable/mitaka"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS=""
-IUSE="+api +scheduler +volume iscsi lvm mysql +memcached postgres sqlite test +tgt lio infiniband rdma"
+IUSE="+api +scheduler +volume iscsi lvm mysql +memcached postgres sqlite test +tgt lio infiniband rdma tcp"
 REQUIRED_USE="|| ( mysql postgres sqlite ) iscsi ( || ( tgt lio ) ) infiniband ( rdma )"
 
 CDEPEND=">=dev-python/pbr-1.6[${PYTHON_USEDEP}]"
