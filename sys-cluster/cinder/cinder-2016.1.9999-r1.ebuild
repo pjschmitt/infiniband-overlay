@@ -86,6 +86,7 @@ RDEPEND="
 	)
 	mysql? (
 		dev-python/mysql-python
+		dev-python/pymysql
 		>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
 		<dev-python/sqlalchemy-1.1.0[${PYTHON_USEDEP}]
 	)
