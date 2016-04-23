@@ -106,7 +106,7 @@ RDEPEND="
 	>=dev-python/google-api-python-client-1.4.2[${PYTHON_USEDEP}]
 	iscsi? (
 		tgt? ( sys-block/tgt )
-		lio? ( sys-block/targetcli 
+		lio? ( #sys-block/targetcli 
 		sys-block/lio-utils
 		)
 		sys-block/open-iscsi
