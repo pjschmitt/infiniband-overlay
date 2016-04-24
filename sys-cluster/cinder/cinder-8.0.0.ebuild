@@ -120,21 +120,21 @@ RDEPEND="
 
 pkg_setup() {
 	linux-info_pkg_setup
-        CONFIG_CHECK_MODULES="tcp? (SCSI_ISCSI_ATTRS ISCSI_TCP) rdma? (INFINIBAND_ISER) infiniband? (INFINIBAND_IPOIB INFINIBAND_USE$
+        CONFIG_CHECK_MODULES="tcp? (SCSI_ISCSI_ATTRS ISCSI_TCP) rdma? (INFINIBAND_ISER) infiniband? (INFINIBAND_IPOIB INFINIBAND_USER_MAD INFINIBAND_USER_ACCESS)"
         if linux_config_exists; then
                 if use tcp; then
                         for module in ${TCP_MODULES}; do
-                                linux_chkconfig_module ${module} || ewarn "${module} needs to be built as module (builtin doesn't wo$
+                                linux_chkconfig_module ${module} || ewarn "${module} needs to be built as module (builtin doesn't work)"
                 done
                 fi
                 if use infiniband; then
                         for module in ${INFINIBAND_MODULES}; do
-                                linux_chkconfig_module ${module} || ewarn "${module} needs to be built as module (builtin doesn't wo$
+                                linux_chkconfig_module ${module} || ewarn "${module} needs to be built as module (builtin doesn't work)"
                 done
                 fi
                 if use rdma; then
                         for module in ${RDMA_MODULES}; do
-                                linux_chkconfig_module ${module} || ewarn "${module} needs to be built as module (builtin doesn't wo$
+                                linux_chkconfig_module ${module} || ewarn "${module} needs to be built as module (builtin doesn't work)"
                 done
                 fi
         fi
