@@ -18,8 +18,8 @@ SRC_URI="https://tarballs.openstack.org/${PN}/${P}.tar.gz
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="+api +scheduler +volume iscsi lvm mysql +memcached postgres sqlite test tgt lio infiniband rdma tcp"
-REQUIRED_USE="|| ( mysql postgres sqlite ) iscsi ( || ( tgt lio ) ) infiniband ( rdma )"
+IUSE="+api +scheduler +volume iscsi lvm mysql +memcached postgres sqlite test tgt lio infiniband rdma tcp initiator-only"
+REQUIRED_USE="|| ( mysql postgres sqlite ) iscsi ( || ( tgt lio initiator-only ) ) infiniband ( rdma )"
 
 CDEPEND=">=dev-python/pbr-1.6[${PYTHON_USEDEP}]"
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
